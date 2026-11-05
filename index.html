@@ -109,6 +109,45 @@ body.spa-about .back-top,body.spa-products .back-top{display:none}
 .organization-image{display:block;width:100%;max-height:560px;object-fit:cover;object-position:center;margin:20px auto 0;border-radius:14px}
 .history-figure img,.product-template-image{display:block;width:100%;height:100%;max-height:420px;object-fit:cover;border-radius:14px}
 
+
+/* Revisi tambahan: warna header mengikuti halaman yang sedang dibuka */
+.site-header{--header-bg:rgba(255,255,255,.97);--header-accent:#408b1b;background:var(--header-bg);transition:background .25s,box-shadow .25s,border-color .25s}
+.site-header[data-page="beranda"]{--header-bg:rgba(245,250,241,.97);--header-accent:#408b1b}
+.site-header[data-page="grup"]{--header-bg:rgba(239,246,250,.98);--header-accent:#27627c}
+.site-header[data-page="tentang"]{--header-bg:rgba(239,244,252,.98);--header-accent:#355f9a}
+.site-header[data-page="produk"]{--header-bg:rgba(252,244,235,.98);--header-accent:#a65c2b}
+.site-header[data-page="keberlanjutan"]{--header-bg:rgba(237,248,245,.98);--header-accent:#187b69}
+.site-header[data-page="kontak"]{--header-bg:rgba(242,244,247,.98);--header-accent:#4e6078}
+.site-header[data-page="detail"]{--header-bg:rgba(241,246,239,.98);--header-accent:#408b1b}
+.site-header .primary-nav .nav-link.active-nav{color:var(--header-accent);background:color-mix(in srgb,var(--header-accent) 10%,white)}
+.site-header .primary-nav .nav-contact{background:var(--header-accent);color:#fff}
+.site-header .primary-nav .nav-contact:hover{filter:brightness(.88);color:#fff}
+.site-header .brand img{transition:opacity .2s}
+
+/* Paragraf panjang dirapikan dengan rata kiri-kanan */
+.history-copy p,.product-template-card p,.detail-product p,.company-detail .section-pad p:not(.eyebrow),
+#page-tentang .section-pad p:not(.eyebrow),#page-produk .section-pad p:not(.eyebrow),
+.sustain-content>p:not(.eyebrow),.contact-section .col-lg-5>p:not(.eyebrow),
+.additional-content p{ text-align:justify; text-justify:inter-word }
+
+/* Konten tambahan agar halaman utama lebih informatif */
+.additional-content{background:#fff}
+.additional-content .value-card{height:100%;padding:28px;border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 8px 25px rgba(16,38,53,.045);transition:transform .2s,box-shadow .2s}
+.additional-content .value-card:hover{transform:translateY(-5px);box-shadow:0 15px 32px rgba(16,38,53,.09)}
+.additional-content .value-card{display:flex;flex-direction:column;align-items:center;text-align:center}
+.additional-content .value-card .product-icon{margin:0 auto 18px}
+.additional-content .value-card h3{font-size:19px;margin-bottom:10px;text-align:center}
+.additional-content .value-card p{font-size:14px;line-height:1.8;margin:0;text-align:center}
+.additional-content .section-heading{text-align:center}
+.additional-content .section-heading > .eyebrow{display:block;width:100%;text-align:center;margin-left:auto;margin-right:auto}
+.additional-content .section-heading p{text-align:center}
+.social-area{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;margin:8px 0 4px}
+.social-area strong{font-size:13px;color:var(--ink);margin-right:4px}
+.social-link{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;color:var(--brand-dark);font-size:17px;transition:all .2s}
+.social-link:hover{background:var(--brand);border-color:var(--brand);color:#fff;transform:translateY(-2px)}
+.social-caption{font-size:12px!important;color:var(--muted);margin:0}
+@media(max-width:767px){.additional-content .value-card{padding:23px}.site-header[data-page] .primary-nav{background:var(--header-bg)}}
+
 </style>
 </head>
 <body>
@@ -163,6 +202,22 @@ body.spa-about .back-top,body.spa-products .back-top{display:none}
     <div class="col-6 col-lg-3"><div class="fact"><span class="fact-number">1.750</span><span class="fact-label">Karyawan (profil resmi)</span></div></div>
     <div class="col-6 col-lg-3"><div class="fact"><span class="fact-number">83,52%</span><span class="fact-label">Saham dimiliki SIG</span></div></div>
   </div><p class="fact-source">Angka berdasarkan profil perusahaan resmi yang diakses pada Oktober 2026. Informasi dapat berubah mengikuti pembaruan perusahaan.</p></div></section>
+
+
+  <section class="additional-content section-pad" id="nilai-tambah">
+    <div class="container">
+      <div class="section-heading" data-aos="fade-up">
+        <p class="eyebrow">NILAI TAMBAH KAMI</p>
+        <h2>Lebih dari sekadar bahan bangunan</h2>
+        <p>Solusi Bangun Indonesia menghubungkan produk, layanan, teknologi, dan kolaborasi untuk membantu pelanggan mewujudkan proyek yang berkualitas sekaligus memperhatikan dampak jangka panjang.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="50"><article class="value-card"><div class="product-icon"><i class="bi bi-diagram-3"></i></div><h3>Solusi Terintegrasi</h3><p>Rangkaian semen, beton siap pakai, agregat, jasa konstruksi, dan pengelolaan limbah membantu memenuhi kebutuhan pembangunan dalam satu ekosistem layanan.</p></article></div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100"><article class="value-card"><div class="product-icon"><i class="bi bi-lightbulb"></i></div><h3>Inovasi dan Keahlian</h3><p>Pengembangan produk, riset, pengujian material, serta dukungan teknis menjadi bagian dari upaya menghadirkan solusi yang sesuai dengan kebutuhan proyek.</p></article></div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="150"><article class="value-card"><div class="product-icon"><i class="bi bi-recycle"></i></div><h3>Komitmen Keberlanjutan</h3><p>Efisiensi sumber daya, pemanfaatan limbah, perlindungan lingkungan, dan kolaborasi masyarakat menjadi perhatian dalam perjalanan menuju pembangunan yang lebih berkelanjutan.</p></article></div>
+      </div>
+    </div>
+  </section>
 
   <section class="sustain-section" id="keberlanjutan"><div class="sustain-image"><img src="assets/img/company/go beyond.webp" alt="Inisiatif dan semangat pembangunan berkelanjutan" loading="lazy"></div><div class="sustain-overlay"></div><div class="container sustain-content" data-aos="fade-up"><p class="eyebrow eyebrow-light">GO BEYOND NEXT</p><h2>Membangun dengan mempertimbangkan masa depan.</h2><p>Keberlanjutan menjadi bagian dari cara kami berinovasi, melalui efisiensi sumber daya, ekonomi sirkular, perlindungan lingkungan, serta kolaborasi dengan masyarakat.</p><a class="btn btn-primary-custom" href="https://solusibangunindonesia.com/" target="_blank" rel="noopener">Kunjungi situs resmi <i class="bi bi-arrow-up-right"></i></a></div></section>
 
@@ -291,7 +346,7 @@ body.spa-about .back-top,body.spa-products .back-top{display:none}
           <div class="col-sm-6 col-lg-3"><article class="person-card"><img src="assets/img/yashude.jpeg" alt="Template foto Direktur 4"><h3>Yasuhide Abe</h3><p>Direktur Offtake & Patnership</p></article></div>
         </div>
       </div>
-      <p class="template-note"><code>src</code></p>
+      <p class="template-note"><code></code></p>
     </div>
   </section>
 </section>
@@ -300,7 +355,7 @@ body.spa-about .back-top,body.spa-products .back-top{display:none}
   <div class="page-banner"><div class="container"><p class="eyebrow eyebrow-light">PRODUK &amp; LAYANAN</p><h1>Solusi untuk kebutuhan pembangunan</h1><p>Produk dan layanan yang kami sediakan untuk kebutuhan pembangunan</p></div></div>
   <section class="section-pad"><div class="container"><div class="row g-4">
     <div class="col-md-6 col-lg-4"><article class="product-template-card"><div class="product-template-image-wrap"><img class="product-template-image" src="assets/img/semen .jpeg" alt="Template gambar produk semen"><span class="product-image-overlay">Semen &amp; Klinker</span></div><h3>Semen &amp; Klinker</h3><p>Menyediakan berbagai pilihan semen berkualitas, seperti Dynamix dan Semen Andalas, untuk kebutuhan pembangunan. Cocok digunakan untuk pekerjaan konstruksi, mulai dari pemasangan, plesteran, hingga pembangunan struktur bangunan.</p></article></div>
-    <div class="col-md-6 col-lg-4"><article class="product-template-card"><div class="product-template-image-wrap"><img class="product-template-image" src="assets/img/beton.jpeg" alt="Template gambar beton siap pakai"><span class="product-image-overlay">Beton Siap Pakai</span></div><h3>Beton Siap Pakai</h3><p>Menyediakan beton siap pakai (ready-mix) dengan campuran semen, pasir, agregat, air, dan bahan tambahan berkualitas. Digunakan untuk mendukung berbagai proyek konstruksi, mulai dari bangunan hingga infrastruktur.</p></article></div>
+    <div class="col-md-6 col-lg-4"><article class="product-template-card"><div class="product-template-image-wrap"><img class="product-template-image" src="assets/img/beton siap pakai.jpeg" alt="Template gambar beton siap pakai"><span class="product-image-overlay">Beton Siap Pakai</span></div><h3>Beton Siap Pakai</h3><p>Menyediakan beton siap pakai (ready-mix) dengan campuran semen, pasir, agregat, air, dan bahan tambahan berkualitas. Digunakan untuk mendukung berbagai proyek konstruksi, mulai dari bangunan hingga infrastruktur.</p></article></div>
     <div class="col-md-6 col-lg-4"><article class="product-template-card"><div class="product-template-image-wrap"><img class="product-template-image" src="assets/img/agregat.jpeg" alt="Template gambar agregat"><span class="product-image-overlay">Agregat</span></div><h3>Agregat</h3><p>Menyediakan material agregat berkualitas, seperti agregat kasar, agregat halus, dan material lainnya. Digunakan sebagai bahan campuran beton, pembangunan jalan, aspal, serta berbagai kebutuhan konstruksi.</p></article></div>
     <div class="col-md-6 col-lg-4"><article class="product-template-card"><div class="product-template-image-wrap"><img class="product-template-image" src="assets/img/pengelolaan limbah.jpeg" alt="Template gambar pengelolaan limbah"><span class="product-image-overlay">Pengelolaan Limbah</span></div><h3>Pengelolaan Limbah</h3><p>Menghadirkan solusi pengelolaan limbah industri yang ramah lingkungan melalui Nathabumi. Layanan ini membantu menangani dan memanfaatkan limbah secara bertanggung jawab untuk mendukung kegiatan industri yang lebih berkelanjutan.</p></article></div>
     <div class="col-md-6 col-lg-4"><article class="product-template-card"><div class="product-template-image-wrap"><img class="product-template-image" src="assets/img/konstruksi.jpeg" alt="Template gambar jasa konstruksi"><span class="product-image-overlay">Jasa Konstruksi</span></div><h3>Jasa Konstruksi</h3><p>Menyediakan solusi konstruksi melalui inovasi DynaHome dan DynaBild. Layanan ini mendukung pembangunan rumah serta pekerjaan pengecoran beton, termasuk di wilayah yang sulit dijangkau.</p></article></div>
@@ -321,7 +376,7 @@ body.spa-about .back-top,body.spa-products .back-top{display:none}
 <section class="sub-hero"><img src="assets/img/company/pabrik besar.jpg" alt="Fasilitas industri konstruksi" class="sub-hero-image"><div class="hero-shade"></div><div class="container sub-hero-content"><a class="breadcrumb-link" href="#beranda"><i class="bi bi-arrow-left"></i> Kembali ke beranda</a><div class="sub-logo"><img src="assets/img/clients/lestari logo.png" alt="Logo PT Pendawa Lestari Perkasa"></div><p class="eyebrow eyebrow-light">BAGIAN DARI EKOSISTEM SIG</p><h1>PT Pendawa Lestari Perkasa</h1><p>Solusi konstruksi dan tambang agregat yang inovatif.</p></div></section><section class="section-pad"><div class="container"><div class="row g-5 align-items-center"><div class="col-lg-6" data-aos="fade-right"><p class="eyebrow">PROFIL PERUSAHAAN</p><h2>Mendukung konstruksi dengan keahlian dan inovasi.</h2><p>PT Pendawa Lestari Perkasa adalah penyedia jasa konstruksi dan tambang agregat yang berkomitmen pada pembangunan berkelanjutan. Perusahaan beroperasi di bidang tambang agregat dan konstruksi dengan dukungan teknologi, serta dimiliki oleh PT Solusi Bangun Indonesia Tbk dan PT Solusi Bangun Beton.</p><p>Sejak 2014, perusahaan tercatat dipercaya sebagai penyedia di eCatalogue LKPP untuk kategori konstruksi seperti beton terpasang, trotoar, dan utilitas jalan.</p><a class="text-link" href="https://solusibangunindonesia.com/pendawalestariperkasa/tentang-kami/" target="_blank" rel="noopener">Sumber resmi Pendawa Lestari Perkasa <i class="bi bi-arrow-up-right"></i></a></div><div class="col-lg-6" data-aos="fade-left"><img class="detail-photo" src="assets/img/company/pekerja.jpg" alt="Aktivitas tenaga kerja di sektor konstruksi" loading="lazy"></div></div></div></section><section class="section-pad soft-bg"><div class="container"><div class="section-heading"><p class="eyebrow">SOLUSI &amp; LAYANAN</p><h2>Keahlian untuk kebutuhan proyek yang beragam</h2><p></p></div><div class="row g-4"><div class="col-md-6 col-lg-3"><article class="detail-product"><img class="detail-product-image" src="assets/img/infrastruktur.jpeg" alt="Gambar produk atau layanan" loading="lazy"><div class="product-icon"><i class="bi bi-cone-striped"></i></div><h3>Infrastruktur</h3><p>Solusi beton rapid setting untuk perbaikan jalan dan beton tahan sulfat untuk kebutuhan pelabuhan serta aplikasi bawah air.</p></article></div><div class="col-md-6 col-lg-3"><article class="detail-product"><img class="detail-product-image" src="assets/img/revitalisasi.jpeg" alt="Gambar produk atau layanan" loading="lazy"><div class="product-icon"><i class="bi bi-bricks"></i></div><h3>Revitalisasi jalur pejalan kaki</h3><p>Beton berpori untuk mendukung drainase serta beton dekoratif untuk area publik, lanskap, dan komersial.</p></article></div><div class="col-md-6 col-lg-3"><article class="detail-product"><img class="detail-product-image" src="assets/img/konstruksi.jpeg" alt="Gambar produk atau layanan" loading="lazy"><div class="product-icon"><i class="bi bi-building-gear"></i></div><h3>Konstruksi industrial</h3><p>Solusi lantai industri, termasuk sistem lantai panel dan lantai minim sambungan sesuai kebutuhan proyek.</p></article></div><div class="col-md-6 col-lg-3"><article class="detail-product"><img class="detail-product-image" src="assets/img/perumahan.jpeg" alt="Gambar produk atau layanan" loading="lazy"><div class="product-icon"><i class="bi bi-house-check"></i></div><h3>Bangunan perumahan</h3><p>Solusi konstruksi hunian dengan pemanfaatan material semen dan beton serta teknologi aplikasinya.</p></article></div></div><div class="sub-cta"><p>Pelajari detail solusi, brosur produk, dan portofolio proyek dari perusahaan.</p><a class="btn btn-primary-custom" href="https://solusibangunindonesia.com/pendawalestariperkasa/solusi-layanan/" target="_blank" rel="noopener">Lihat layanan resmi <i class="bi bi-arrow-up-right"></i></a></div></div></section>
   </section>
 
-<footer class="site-footer"><div class="container footer-inner"><a href="#beranda" class="footer-brand"><img src="assets/img/Logo_Solusi_Bangun_Indonesia.svg.webp" alt="Solusi Bangun Indonesia"></a><p>Solusi Bangun Indonesia · Solusi bahan bangunan terintegrasi untuk masa depan berkelanjutan.</p><div class="footer-links"><a href="#page-tentang">Tentang</a><a href="#page-produk">Produk &amp; Layanan</a><a href="#grup">Grup Perusahaan</a><a href="#kontak">Kontak</a></div><small>© <span id="year"></span> PT Solusi Bangun Indonesia Tbk.</small></div></footer>
+<footer class="site-footer"><div class="container footer-inner"><a href="#beranda" class="footer-brand"><img src="assets/img/Logo_Solusi_Bangun_Indonesia.svg.webp" alt="Solusi Bangun Indonesia"></a><p>Solusi Bangun Indonesia · Solusi bahan bangunan terintegrasi untuk masa depan berkelanjutan.</p><div class="footer-links"><a href="#page-tentang">Tentang</a><a href="#page-produk">Produk &amp; Layanan</a><a href="#grup">Grup Perusahaan</a><a href="#kontak">Kontak</a></div><div class="social-area" aria-label="Media sosial Solusi Bangun Indonesia"><strong>Ikuti kami</strong><a class="social-link" href="https://www.instagram.com/solusibangunid/" target="_blank" rel="noopener" aria-label="Instagram Solusi Bangun Indonesia" title="Instagram"><i class="bi bi-instagram"></i></a><a class="social-link" href="https://www.linkedin.com/company/solusi-bangun-indonesia/" target="_blank" rel="noopener" aria-label="LinkedIn Solusi Bangun Indonesia" title="LinkedIn"><i class="bi bi-linkedin"></i></a><a class="social-link" href="https://x.com/solusibangunid" target="_blank" rel="noopener" aria-label="X Solusi Bangun Indonesia" title="X"><i class="bi bi-twitter-x"></i></a><a class="social-link" href="https://linktr.ee/solusibangunindonesia" target="_blank" rel="noopener" aria-label="Seluruh kanal media sosial resmi" title="Semua kanal resmi"><i class="bi bi-link-45deg"></i></a></div><p class="social-caption">Instagram dan X: @solusibangunid · Lihat kanal resmi lainnya melalui tautan media sosial.</p><small>© <span id="year"></span> PT Solusi Bangun Indonesia Tbk.</small></div></footer>
 <a class="back-top" href="#beranda" aria-label="Kembali ke atas"><i class="bi bi-arrow-up"></i></a>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
@@ -329,6 +384,16 @@ body.spa-about .back-top,body.spa-products .back-top{display:none}
 (() => {
   const body = document.body;
   const header = document.querySelector('.site-header');
+  const navLinks = [...document.querySelectorAll('.primary-nav a.nav-link[href^="#"]')];
+  const setHeaderPage = page => {
+    if (!header) return;
+    header.dataset.page = page || 'beranda';
+    navLinks.forEach(link => {
+      const target = (link.getAttribute('href') || '').slice(1);
+      const active = (page === 'tentang' && target === 'page-tentang') || (page === 'produk' && target === 'page-produk') || target === page;
+      link.classList.toggle('active-nav', active);
+    });
+  };
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.primary-nav');
   const backTop = document.querySelector('.back-top');
@@ -345,6 +410,7 @@ body.spa-about .back-top,body.spa-products .back-top{display:none}
     const isAbout = pageId === 'page-tentang';
     const isProducts = pageId === 'page-produk';
     details.forEach(section => section.classList.toggle('active-page', isDetail && section.id === pageId));
+    setHeaderPage(isDetail ? 'detail' : isAbout ? 'tentang' : isProducts ? 'produk' : 'beranda');
     body.classList.toggle('spa-detail', isDetail);
     body.classList.toggle('spa-about', isAbout);
     body.classList.toggle('spa-products', isProducts);
@@ -364,6 +430,15 @@ body.spa-about .back-top,body.spa-products .back-top{display:none}
     const scrolled = window.scrollY > 24;
     header?.classList.toggle('scrolled', scrolled);
     backTop?.classList.toggle('visible', window.scrollY > 420 && !body.classList.contains('spa-detail') && !body.classList.contains('spa-about') && !body.classList.contains('spa-products'));
+    if (!body.classList.contains('spa-detail') && !body.classList.contains('spa-about') && !body.classList.contains('spa-products')) {
+      const sections = ['kontak','keberlanjutan','nilai-tambah','grup','beranda'];
+      let current = 'beranda';
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 150) { current = id === 'nilai-tambah' ? 'grup' : id; break; }
+      }
+      setHeaderPage(current);
+    }
   };
   window.addEventListener('scroll', updateScrollState, { passive: true });
   toggle?.addEventListener('click', () => {
@@ -410,6 +485,7 @@ body.spa-about .back-top,body.spa-products .back-top{display:none}
   if (isKnownPage(initial)) showPage(initial, false);
   else if (details.some(section => section.id === initial)) showPage(initial, false);
   else { body.classList.remove('spa-detail','spa-about','spa-products'); details.forEach(section => section.classList.remove('active-page')); }
+  setHeaderPage(body.classList.contains('spa-about') ? 'tentang' : body.classList.contains('spa-products') ? 'produk' : body.classList.contains('spa-detail') ? 'detail' : 'beranda');
   updateScrollState();
 })();;
 </script>
@@ -465,7 +541,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let scale = 1;
     const minScale = 0.5;
-    const maxScale = 2.5;
+    const maxScale = 1;
     const zoomStep = 0.2;
 
     const baseWidth = 1400;
@@ -581,3 +657,4 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 </body>
+</html>
